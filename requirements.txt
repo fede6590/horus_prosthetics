@@ -1,3 +1,5 @@
-opencv-python
 streamlit
+mediapipe
+Pillow
+opencv-python-headless
 numpy

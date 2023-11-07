@@ -8,7 +8,7 @@ FirstName = os.environ.get('FIRSTNAME')
 LastName = os.environ.get('LASTNAME')
 api_url = f"https://cms.horusleg.com/api/collections/CV_Angles_{FirstName}_{LastName}/records"
 
-st.title("Horus Prosthetics - Angle Measurement")
+st.title("Horus Prosthetics - Limb angle measurement")
 
 st.write("Please follow the instructions below to collect data for angle measurement:")
 st.write("1. You will take 2 pictures of your residual limb, natural leg, and prosthetic leg: one from the front and the other from the side (the limb side).")
@@ -16,8 +16,11 @@ st.write("2. Ensure you are in a weight-bearing stance for accurate measurements
 st.write("3. Try to pose next to a structure perpendicular to the floor (a door edge for example).")
 
 test_number = st.number_input("Test Number", min_value=1, help="Numerical value for test tracking")
-front_shot = st.file_uploader("Upload front capture", key="front", type=["jpg", "jpeg", "png"])
-side_shot = st.file_uploader("Upload side capture", key="side", type=["jpg", "jpeg", "png"])
+col1, col2 = st.columns(2)
+with col1:
+    front_shot = st.file_uploader("Upload front capture", key="front", type=["jpg", "jpeg", "png"])
+with col2:
+    side_shot = st.file_uploader("Upload side capture", key="side", type=["jpg", "jpeg", "png"])
 
 if front_shot and side_shot and test_number:
 
@@ -34,7 +37,7 @@ if front_shot and side_shot and test_number:
     with col2:
         st.image(side_landmarked, caption="Landmarks on side view", use_column_width=True)
 
-    if st.button("Calculate Angles"):
+    if st.button("Calculate angles"):
         angle_front = front.calculate_angle()
         angle_side = side.calculate_angle()
 

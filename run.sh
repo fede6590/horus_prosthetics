@@ -7,9 +7,9 @@ export LASTNAME=Ferreyra
 # Define the Docker image name
 image_name="horus_app"
 
-# Check if the Docker image exists
+# # Check if the Docker image exists
 # if [[ "$(docker images -q $image_name 2> /dev/null)" == "" ]]; then
-#     # Build the Docker image from the Dockerfile
+#     Build the Docker image from the Dockerfile
 #     docker build -t $image_name .
 # fi
 

@@ -7,7 +7,6 @@ WORKDIR /app
 COPY requirements.txt .
 COPY app.py .
 COPY image_processing.py .
-COPY pose_landmarker_lite.task .
  
 RUN pip install --no-cache-dir -r requirements.txt
 

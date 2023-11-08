@@ -8,7 +8,7 @@ FirstName = os.environ.get('FIRSTNAME')
 LastName = os.environ.get('LASTNAME')
 api_url = f"https://cms.horusleg.com/api/collections/CV_Angles_{FirstName}_{LastName}/records"
 
-st.title("Horus Prosthetics - Limb angle measurement")
+st.title("Horus Prosthetics - Static alignment of transfemoral prosthetic legs")
 
 st.write("Please follow the instructions below to collect data for angle measurement:")
 st.write("1. You will take 2 pictures of your residual limb, natural leg, and prosthetic leg: one from the front and the other from the side (the limb side).")
@@ -40,10 +40,10 @@ if front_shot and side_shot and test_number:
     if st.button("Calculate angles"):
         angle_front = front.calculate_angle()
         angle_side = side.calculate_angle()
-
+        filenames = [front_shot.name, side_shot.name]
         payload = {'abduction_angle': angle_front,
                    'flexion_angle': angle_side,
-                   'any_data_as_file': 'yes' if front_shot or side_shot else 'no',
+                   'any_data_as_file': filenames,
                    'test_number': test_number
                    }
 
@@ -53,8 +53,8 @@ if front_shot and side_shot and test_number:
         try:
             response = requests.post(api_url, json=payload)
             if response.status_code == 200:
-                st.success("Angles have been calculated and submitted successfully.")
+                st.success("Body parameters submitted successfully.")
             else:
-                st.error("Failed to submit angles. Please try again.")
+                st.error("Failed to submit body parameters.")
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")

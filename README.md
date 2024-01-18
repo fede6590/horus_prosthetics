@@ -1,6 +1,6 @@
 # Horus Prosthetics - Limb angle calculator
 
-### Only options available (for now): local deployment using Docker client (less easy and needs Docker)
+### Only options available (for now): local deployment using Docker
 
 Make sure Docker is running, and use the Bash terminal to run the following commands:
 

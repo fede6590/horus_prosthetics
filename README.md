@@ -4,12 +4,14 @@
 
 Simply access the app using https://horusprosthetics-challenge.streamlit.app/
 
+
 ### Option 2: manual deployment in Streamlit Cloud (very easy but account needed) - FAILING
 
 Log in to https://share.streamlit.io/deploy.
 Clone the repository, use the URL to deploy the app, and the app.py script as entry point to deploy the app. In "advanced settings", select "Python 3.11"
 
 That's it, ¡good luck!
+
 
 ### Option 3: local deployment using Docker client (less easy and needs Docker)
 

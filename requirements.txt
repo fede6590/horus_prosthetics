@@ -2,4 +2,5 @@ streamlit
 mediapipe
 Pillow
 opencv-python-headless
+opencv-contrib-python
 numpy

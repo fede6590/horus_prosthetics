@@ -1,10 +1,10 @@
 # Horus Prosthetics - Limb angle calculator
 
-### Option 1: access the app with my shareable streamlit URL
+### Option 1: access the app with my shareable streamlit URL - FAILING (libgl1-mesa-glx libglib2.0-0 error)
 
 Simply access the app using https://horusprosthetics-challenge.streamlit.app/
 
-### Option 2: manual deployment in Streamlit Cloud (very easy but account needed)
+### Option 2: manual deployment in Streamlit Cloud (very easy but account needed) - FAILING
 
 Log in to https://share.streamlit.io/deploy.
 Clone the repository, use the URL to deploy the app, and the app.py script as entry point to deploy the app. In "advanced settings", select "Python 3.11"

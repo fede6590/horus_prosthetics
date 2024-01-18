@@ -4,9 +4,6 @@ import os
 
 from image_processing import AmputationAngleCalculator
 
-FirstName = os.environ.get('FIRSTNAME')
-LastName = os.environ.get('LASTNAME')
-api_url = f"https://cms.horusleg.com/api/collections/CV_Angles_{FirstName}_{LastName}/records"
 
 st.title("Horus Prosthetics - Static alignment of transfemoral prosthetic legs")
 
@@ -41,20 +38,10 @@ if front_shot and side_shot and test_number:
         angle_front = front.calculate_angle()
         angle_side = side.calculate_angle()
         filenames = [front_shot.name, side_shot.name]
-        payload = {'abduction_angle': angle_front,
+        response = {'abduction_angle': angle_front,
                    'flexion_angle': angle_side,
                    'any_data_as_file': filenames,
                    'test_number': test_number
                    }
 
-        st.text(payload)
-        st.text(f'Sending to: {api_url}')
-
-        try:
-            response = requests.post(api_url, json=payload)
-            if response.status_code == 200:
-                st.success("Body parameters submitted successfully.")
-            else:
-                st.error("Failed to submit body parameters.")
-        except Exception as e:
-            st.error(f"An error occurred: {str(e)}")
+        st.text(response)
